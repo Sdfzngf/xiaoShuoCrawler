@@ -9,7 +9,10 @@ firstz=''
 fipth=''
 ct=0
 
-def 
+def wt(next):
+	print('\"',next[1],'\"已爬取完毕','enter爬取下一章\n','q退出')
+	if input()=='q':
+		sys.exit(0)
 
 def cnm(url):
 
@@ -31,18 +34,16 @@ def cnm(url):
 	return [a,zjmc[0]]
 
 def stt():
-	global firstz,fipth,wqd
+	global firstz,fipth,wqd,ct
 	if not wqd:
 		firstz=input('请输入第一章的url:')
 		fipth=input('下载目录:')
 	next=cnm(firstz)
-	print('\"'+next[1]+'\"已爬取完毕'+'enter爬取下一章')
-	input()
+	wt(next)
 	ct+=1
 	while True:
 		next=cnm(next[0])
-		print('\"'+next[1]+'\"已爬取完毕'+'enter爬取下一章')
-		input()
+		wt(next)
 		ct+=1
 
 if __name__=="__main__":
